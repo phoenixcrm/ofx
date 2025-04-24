@@ -19,7 +19,7 @@ module OFX
         case headers["VERSION"]
         when /100|102|103/ then
           @parser = OFX102.new(:headers => headers, :body => body)
-        when /200|202|211|220/ then
+        when /200|202|203|211|220/ then
           @parser = OFX211.new(:headers => headers, :body => body)
         else
           raise OFX::UnsupportedFileError
